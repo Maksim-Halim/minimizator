@@ -1,7 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-
+namespace App\Context;
+use App\Http\Controllers\HomeWorkSolidController;
+use App\Http\Controllers\Minimizator;
+use App\Http\Controllers\QueryController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ TestController::class, 'index' ]);
+//Route::get('/', [ Dataenter::class, 'index']);
+//Route::get('/', [ Context::class, 'index' ]);
+Route::get('/', [ HomeWorkSolidController::class, 'index' ]);
+Route::get('/query', [ QueryController::class, 'queries' ]);
+Route::get('/minimizator', [ Minimizator::class, 'minipage_view' ]);
+Route::post('/minimizator', [ Minimizator::class, 'miniurlcreator' ]);
+Route::get('/{short}', [Minimizator::class, 'away'])->name('new.url');
+
